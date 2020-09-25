@@ -1,3 +1,7 @@
+/* Google font imports */
+/* Playfair Display Regular 400 --> font-family: 'Playfair Display', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Playfair+Display&display=swap');
+
 body {
   margin: 0;
 }
@@ -12,28 +16,38 @@ body {
 /* RandomQuoteMachine Component Styling */
 .RandomQuoteMachine {
   width: 90vw;
-  max-width: 500px;
+  max-width: 550px;
 }
 #quote-box {
-  min-height: 200px;
+  min-height: 230px;
   background-color: #fdfdfd;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.2);
 }
 #text {
-  max-width: 75%;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.3em;
+  max-width: 90%;
   line-height: 1.6;
+  margin-bottom: 10px;
+}
+#author {
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 button {
   padding: 5px;
   margin: 5px;
 }
 .button {
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
   font-size: 14px;
-  border: 1px solid black;
+  border: none;
   background-color: #ededed;
   color: black;
   text-decoration: none;
@@ -45,6 +59,16 @@ button {
 .buttons-container {
   /* positions buttons-container child at the end of its flex parent container */
   margin-top: auto;
+  width: 100%;
+  position: relative;
+}
+#tweet-quote {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#twitter-icon {
+  font-size: 18px;
 }
 .flex-centered {
   display: flex;

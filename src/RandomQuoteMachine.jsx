@@ -1,13 +1,13 @@
 // READINGS:
 // initialisation
 // https://reactjs.org/docs/faq-ajax.html
-// animation
-// https://medium.com/@dmitrynozhenko/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf
-// https://atomizedobjects.com/blog/react/tutorial-creating-reactjs-animations-react-hooks/
-// transitions
-// https://medium.com/@joethedave/achieving-ui-animations-with-react-the-right-way-562fa8a91935
+// animations with styled-components
+// https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
 
 import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 const url = "https://type.fit/api/quotes"; // quotes API
 let quotes;
 
@@ -53,19 +53,31 @@ class RandomQuoteMachine extends React.Component {
   }
 
   render() {
+    let quote;
+    let author;
+    if (this.state.quote !== "") {
+      quote = <p id="text">{`"${this.state.quote}"`}</p>
+    } else {
+      quote = <p id="text"></p>
+    }
+    if (this.state.author !== "") {
+      author = <p id="author">- {this.state.author}</p>
+    } else {
+      author = <p id="author"></p>
+    }
     return (
       <div className="RandomQuoteMachine">
         <h1>Random Quote Machine</h1>
         <div id="quote-box" className="flex-centered">
-          <p id="text">{this.state.quote}</p>
-          <p id="author">- {this.state.author}</p>
+          {quote}
+          {author}
           <div className="buttons-container">
             <a
               className="button"
               id="tweet-quote"
               href="twitter.com/intent/tweet"
             >
-              Tweet
+             <FontAwesomeIcon id="twitter-icon" icon={faTwitter} color="#1da1f2" />
             </a>
             <button
               id="new-quote"
