@@ -1,3 +1,12 @@
+// READINGS:
+// initialisation
+// https://reactjs.org/docs/faq-ajax.html
+// animation
+// https://medium.com/@dmitrynozhenko/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf
+// https://atomizedobjects.com/blog/react/tutorial-creating-reactjs-animations-react-hooks/
+// transitions
+// https://medium.com/@joethedave/achieving-ui-animations-with-react-the-right-way-562fa8a91935
+
 import React from "react";
 const url = "https://type.fit/api/quotes"; // quotes API
 let quotes;
@@ -56,9 +65,13 @@ class RandomQuoteMachine extends React.Component {
               id="tweet-quote"
               href="twitter.com/intent/tweet"
             >
-            Tweet
+              Tweet
             </a>
-            <button id="new-quote" className="button" onClick={this.getRandomQuote}>
+            <button
+              id="new-quote"
+              className="button"
+              onClick={this.getRandomQuote}
+            >
               New quote
             </button>
           </div>
