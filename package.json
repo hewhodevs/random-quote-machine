@@ -1,7 +1,7 @@
 {
   "name": "random-quote-machine",
   "version": "1.0.0",
-  "description": "Random Quote Generator created for the FreeCodeCamp Front End Libraries Certification",
+  "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
