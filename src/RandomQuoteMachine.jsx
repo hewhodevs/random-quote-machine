@@ -26,7 +26,7 @@ const animation = keyframes`
   }
 `;
 const StyledText = styled.p`
-  animation: ${animation} 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: ${animation} 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 `;
 
 class RandomQuoteMachine extends React.Component {
