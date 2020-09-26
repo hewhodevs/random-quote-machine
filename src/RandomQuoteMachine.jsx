@@ -5,16 +5,35 @@
 // https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
 
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
-const url = "https://type.fit/api/quotes"; // quotes API
+// quotes API from https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373
+const url = "https://type.fit/api/quotes";
 let quotes;
+
+// styled components
+const animation = keyframes`
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+`;
+const StyledText = styled.p`
+  animation: ${animation} 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+`;
 
 class RandomQuoteMachine extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      quoteIndex: "",
       quote: "",
       author: ""
     };
@@ -47,30 +66,35 @@ class RandomQuoteMachine extends React.Component {
     let author = quote.author ?? "Unknown";
 
     this.setState({
+      quoteIndex: randomIndex,
       quote: text,
       author: author
     });
   }
 
   render() {
-    let quote;
-    let author;
+    let quoteElement;
+    let authorElement;
+    let quoteIndex = this.state.quoteIndex;
+    let quoteText = this.state.quote;
+    let authorName = this.state.author;
+
     if (this.state.quote !== "") {
-      quote = <p id="text">{`"${this.state.quote}"`}</p>
+      quoteElement = <StyledText key={`quote-${quoteIndex}`} id="text">{`"${quoteText}"`}</StyledText>
     } else {
-      quote = <p id="text"></p>
+      quoteElement = <StyledText key={`quote-${quoteIndex}`} id="text"></StyledText>
     }
     if (this.state.author !== "") {
-      author = <p id="author">- {this.state.author}</p>
+      authorElement = <StyledText key={`author-${quoteIndex}`} id="author">- {authorName}</StyledText>
     } else {
-      author = <p id="author"></p>
+      authorElement = <StyledText key={`author-${quoteIndex}`} id="author"></StyledText>
     }
     return (
       <div className="RandomQuoteMachine">
         <h1>Random Quote Machine</h1>
         <div id="quote-box" className="flex-centered">
-          {quote}
-          {author}
+          {quoteElement}
+          {authorElement}
           <div className="buttons-container">
             <a
               className="button"
