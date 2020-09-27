@@ -7,7 +7,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 // quotes API from https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373
 const url = "https://type.fit/api/quotes";
 let quotes;
@@ -26,7 +26,7 @@ const animation = keyframes`
   }
 `;
 const StyledText = styled.p`
-  animation: ${animation} 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: ${animation} 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 `;
 
 class RandomQuoteMachine extends React.Component {
@@ -43,6 +43,12 @@ class RandomQuoteMachine extends React.Component {
 
   componentDidMount() {
     this.getQuotes();
+    // Append FreeCodeCamp tests to the DOM to see the test suite
+    const script = document.createElement("script");
+    script.src =
+      "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+    script.async = true;
+    document.body.appendChild(script);
   }
 
   async getQuotes() {
@@ -80,16 +86,29 @@ class RandomQuoteMachine extends React.Component {
     let authorName = this.state.author;
 
     if (this.state.quote !== "") {
-      quoteElement = <StyledText key={`quote-${quoteIndex}`} id="text">{`"${quoteText}"`}</StyledText>
+      quoteElement = (
+        <StyledText
+          key={`quote-${quoteIndex}`}
+          id="text"
+        >{`"${quoteText}"`}</StyledText>
+      );
     } else {
-      quoteElement = <StyledText key={`quote-${quoteIndex}`} id="text"></StyledText>
+      quoteElement = (
+        <StyledText key={`quote-${quoteIndex}`} id="text"></StyledText>
+      );
     }
     if (this.state.author !== "") {
-      authorElement = <StyledText key={`author-${quoteIndex}`} id="author">- {authorName}</StyledText>
+      authorElement = (
+        <StyledText key={`author-${quoteIndex}`} id="author">
+          - {authorName}
+        </StyledText>
+      );
     } else {
-      authorElement = <StyledText key={`author-${quoteIndex}`} id="author"></StyledText>
+      authorElement = (
+        <StyledText key={`author-${quoteIndex}`} id="author"></StyledText>
+      );
     }
-    
+
     return (
       <div className="RandomQuoteMachine">
         <div id="quote-box" className="flex-centered">
@@ -101,7 +120,11 @@ class RandomQuoteMachine extends React.Component {
               id="tweet-quote"
               href="twitter.com/intent/tweet"
             >
-             <FontAwesomeIcon id="twitter-icon" icon={faTwitter} color="#1da1f2" />
+              <FontAwesomeIcon
+                id="twitter-icon"
+                icon={faTwitter}
+                color="#1da1f2"
+              />
             </a>
             <button
               id="new-quote"
