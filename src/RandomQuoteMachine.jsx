@@ -89,9 +89,9 @@ class RandomQuoteMachine extends React.Component {
     } else {
       authorElement = <StyledText key={`author-${quoteIndex}`} id="author"></StyledText>
     }
+    
     return (
       <div className="RandomQuoteMachine">
-        <h1>Random Quote Machine</h1>
         <div id="quote-box" className="flex-centered">
           {quoteElement}
           {authorElement}
