@@ -1,9 +1,3 @@
-// READINGS:
-// initialisation
-// https://reactjs.org/docs/faq-ajax.html
-// animations with styled-components
-// https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
-
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
