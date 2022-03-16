@@ -37,12 +37,6 @@ class RandomQuoteMachine extends React.Component {
 
   componentDidMount() {
     this.getQuotes();
-    // Append FreeCodeCamp tests to the DOM to see the test suite
-    const script = document.createElement("script");
-    script.src =
-      "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
-    script.async = true;
-    document.body.appendChild(script);
   }
 
   async getQuotes() {
