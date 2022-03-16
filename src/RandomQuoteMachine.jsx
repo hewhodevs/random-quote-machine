@@ -123,6 +123,10 @@ class RandomQuoteMachine extends React.Component {
             </button>
           </div>
         </div>
+        <footer>
+          <p>Created by <a href="https://twitter.com/hewhodevs">Joshua Kelly</a></p>
+          <p>Code availeble on <a href="https://github.com/hewhodevs/random-quote-machine">GitHub</a></p>
+        </footer>
       </div>
     );
   }
